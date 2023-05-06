@@ -11,14 +11,14 @@ export function Searchbar({onSubmit}) {
     Search 
     </button>
 
-    <input className={css.SearchFormInput}
+    <input 
     name="inputForSearch"
-      class="input"
+    className={css.SearchFormInput}
       type="text"
       autocomplete="off"
       autofocus
       placeholder="Search images and photos"
-    />
+      />
   </form>
 </header>
 

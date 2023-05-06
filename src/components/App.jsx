@@ -35,8 +35,10 @@ handleSubmit = async e => {
 
 handleClickMore = async () => {
   const response = await fetchImages(
+    
     this.state.currentSearch,
     this.state.pageNr + 1
+
   );
   this.setState({
     images: [...this.state.images, ...response],
@@ -57,6 +59,7 @@ handleModalClose = () => {
     modalOpen: false,
     modalImg: '',
     modalAlt: '',
+    
   });
 };
 
@@ -76,17 +79,13 @@ async componentDidMount() {
 render() {
   return (
     <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        gridGap: '16px',
-        paddingBottom: '24px',
-      }}
+     
     >
+    
       {this.state.isLoading ? (
         <Loader />
       ) : (
-        <React.Fragment>
+        <>
           <Searchbar onSubmit={this.handleSubmit} />
           <ImageGallery
             onImageClick={this.handleImageClick}
@@ -95,7 +94,7 @@ render() {
           {this.state.images.length > 0 ? (
             <Button onClick={this.handleClickMore} />
           ) : null}
-        </React.Fragment>
+        </>
       )}
       {this.state.modalOpen ? (
         <Modal
